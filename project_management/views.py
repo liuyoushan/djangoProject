@@ -75,3 +75,5 @@ def host_delete(request):
         return HttpResponse('pass')
     except Exception as e:
         return HttpResponse(e)
+
+
