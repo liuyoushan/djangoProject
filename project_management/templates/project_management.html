@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+        <style>
+        body,ul,li{
+            {#margin:0;#}
+            {#padding:0;#}
+        }
+
+        ul{
+            list-style: none;
+            border-bottom:1px solid #f90;
+            overflow:hidden;
+        }
+        ul li{
+            float:left;
+            {#border:1px solid #f90; {# 按钮边框#}
+            margin-left:-1px;
+            padding:6px 30px;  {# 按钮背景框 #}
+            border-top-left-radius:3px;
+            border-top-right-radius:3px;
+            border-bottom:none;
+            cursor:pointer;
+        }
+        ul li:first-child{
+            background:#f90;
+        }
+        ul li:first-child a{
+            color:white;
+        }
+
+
+    </style>
+
+</head>
+<body>
+
+<div class="box">
+    <ul id="example1">
+        <li><a href="http://127.0.0.2:8000/project/project/intro" target="content1">项目介绍</a></li>
+        <li><a href="http://127.0.0.2:8000/project/project/host" target="content1">项目host</a></li>
+        <li><a href="http://127.0.0.2:8000/project/project/interface" target="content1">API接口</a></li>
+        <li><a href="http://127.0.0.2:8000/project/project/case" target="content1">测试用例</a></li>
+        <li><a href="http://127.0.0.2:8000/project/project/record" target="content1">运行记录</a></li>
+
+    </ul>
+    <iframe src="http://127.0.0.2:8000/project/project/intro" ></iframe>
+</div>
+
+
+</body>
+</html>

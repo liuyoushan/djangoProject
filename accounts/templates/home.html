@@ -1,0 +1,88 @@
+{% load staticfiles %}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <title></title>
+    <style>
+        body,ul,li{
+            {#margin:0;#}
+            {#padding:0;#}
+        }
+        a{
+            text-decoration: none;
+            color:black;
+        }
+        .box{
+            width:1500px;
+            height:600px;
+            {#border:1px solid #f90;#} {# 类似画布，整体边框的样式 #}
+            border-radius:10px;
+            margin:40px auto;
+        }
+        h3{
+            {#text-align:center;#}
+            text-indent: 25px;
+        }
+        ul{
+            list-style: none;
+            border-bottom:1px solid #f90;
+            overflow:hidden;
+        }
+        ul li{
+            float:left;
+            {#border:1px solid #f90; {# 按钮边框#}
+            margin-left:-1px;
+            padding:6px 30px;
+            border-top-left-radius:3px;
+            border-top-right-radius:3px;
+            border-bottom:none;
+            cursor:pointer;
+        }
+        ul li:first-child{
+            background:#f90;
+        }
+        ul li:first-child a{
+            color:white;
+        }
+        iframe{
+            width:100%;
+            height:100%;
+            border:none;
+            background:none;
+        }
+    </style>
+</head>
+<body>
+<div class="box">
+    <h3>API测试平台</h3>
+    <ul id="example1">
+        <li><a href="http://127.0.0.2:8000/account/home/page" target="content1">首页</a></li>
+        <li><a href="http://127.0.0.2:8000/project/project/" target="content1">项目管理</a></li>
+        <li><a href="/" target="content1">成员管理</a></li>
+    </ul>
+    <iframe src="http://127.0.0.2:8000/account/home/page" name="content1" ></iframe>
+</div>
+
+<script>
+    var lis=document.querySelectorAll("#example1 li");
+    var len=lis.length;
+//切换页签样式：遍历li，给li绑定onclick事件
+    for(var i=0;i<len;i++){
+        lis[i].onclick=function(){
+            //切换页签样式↓
+            for(var i=0;i<len;i++){
+                if(lis[i]==this){//判断是否为当前对象
+                    lis[i].style.background="#f90";
+                    lis[i].querySelector("a").style.color="white";
+                }else{
+                    lis[i].style.background="white";
+                    lis[i].querySelector("a").style.color="black";
+                }
+            }
+        }
+    }
+</script>
+</body>
+</html>
