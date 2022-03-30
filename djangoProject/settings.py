@@ -19,7 +19,8 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/1.11/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'r5770=_eai3jr=!!uc_f+i&mvq64k1szfax%2mgg)3a%!)xl7t'
+# SECRET_KEY = 'r5770=_eai3jr=!!uc_f+i&mvq64k1szfax%2mgg)3a%!)xl7t'
+SECRET_KEY = 'co6g_jieu5+f(c_lktomei21l+$#8fl3ojsg^v1!$(1p=7ik(d'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -35,10 +36,18 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'accounts.apps.AccountsConfig',  # 账号模块
-    'project_management.apps.ProjectManagementConfig',  # 项目管理模块
+    'rest_framework', # 不加上这个html页面请求失败
+
+    # 用来做跨域的
+    'apps.accounts.apps.AccountsConfig',  # 账号模块
+    'apps.project_management.apps.ProjectManagementConfig',  # 项目管理模块
+    'apps.home_page.apps.HomePageConfig',  # 主页模块
+    'apps.zlauth',  # 登录
 
 ]
+
+# 允许所有域名来访问我们的服务器
+CORS_ORIGIN_ALLOW_ALL = True
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -112,7 +121,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'Asia/Shanghai'
 
 USE_I18N = True
 
@@ -134,3 +143,6 @@ STATICFILES_DIRS = [
 # 用户上传的文件
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
+# 设置默认的用户模型
+AUTH_USER_MODEL = "zlauth.ZLUser"

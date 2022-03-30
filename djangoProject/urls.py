@@ -15,16 +15,16 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
-from . import testdb
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     # 个人账号模块
-    path('account/', include('accounts.urls')),
+    path('account/', include('apps.accounts.urls')),
     # 项目管理模块
-    path('project/', include('project_management.urls')),
+    path('project/', include('apps.project_management.urls')),
+    # 首页模块
+    path('home/', include('apps.home_page.urls')),
 
-    path('testdb/host', testdb.host_test),
-
+    path('auth/', include("apps.zlauth.urls")),
 
 ]
